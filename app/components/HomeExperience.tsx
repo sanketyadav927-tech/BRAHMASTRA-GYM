@@ -90,7 +90,12 @@ export default function HomeExperience() {
           </motion.div>
         ) : (
           !introComplete && (
-            <ForgeIntro onComplete={() => setIntroComplete(true)} />
+            <ForgeIntro
+  onComplete={() => setIntroComplete(true)}
+  onSkip={() => {
+    setIntroComplete(true);
+  }}
+/>
           )
         )}
       </AnimatePresence>

@@ -5,9 +5,13 @@ import { useEffect, useRef } from "react";
 
 type Props = {
   onComplete: () => void;
+  onSkip: () => void;
 };
 
-export default function ForgeIntro({ onComplete }: Props) {
+export default function ForgeIntro({
+  onComplete,
+  onSkip,
+}: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -72,6 +76,17 @@ export default function ForgeIntro({ onComplete }: Props) {
       </video>
 
       <div className="absolute inset-0 bg-black/10" />
+      <button
+  onClick={onSkip}
+  className="absolute top-6 right-6 z-[99999] rounded-full border border-white/30 bg-black/40 px-5 py-2 text-white backdrop-blur-md hover:bg-white hover:text-black transition"
+>
+  Skip →
+</button><button
+  onClick={onSkip}
+  className="absolute top-6 right-6 z-[99999] rounded-full border border-white/30 bg-black/40 px-5 py-2 text-white backdrop-blur-md hover:bg-white hover:text-black transition"
+>
+  Skip →
+</button>
     </motion.div>
   );
 }
